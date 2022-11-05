@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import logging
+import os
 from typing import List
 
 import bentoml
@@ -21,7 +22,7 @@ from processing.preprocessors import (BinaryEncoder, CleanStrings,
                                       ColumnDropperTransformer)
 
 logging.basicConfig(level=logging.INFO)
-
+MODEL_NAME = os.getenv("MODEL_NAME", "stroke_detection_model")
 
 # Importing the data
 def read_data(filepath=""): 
@@ -243,14 +244,14 @@ def create_bento(best_model: tuple, preprocessor: Pipeline, transformer: Pipelin
         
         model = best_model[1]['model']
         bentoml.xgboost.save_model(
-        name='stroke_detection_model',
+        name=f'{MODEL_NAME}',
         model=model,
         custom_objects={
             "preprocessor": preprocessor,
             "transformer": transformer
         },
         signatures={
-            "predict":{
+            "predict_proba":{
                 "batchable": True,
                 "batch_dim": 0
             }
@@ -261,18 +262,18 @@ def create_bento(best_model: tuple, preprocessor: Pipeline, transformer: Pipelin
         logging.info(f"Should use bentoml scikit learn framework")
         model = best_model[1]['model']
         bentoml.sklearn.save_model(
-        name='stroke_detection_model',
+        name=f'{MODEL_NAME}',
         model=model,
         custom_objects={
             "preprocessor": preprocessor,
             "transformer": transformer
         },
         signatures={
-            "predict":{
+            "predict_proba":{
                 "batchable": True,
                 "batch_dim": 0
             }
-        }
+        },
         )
     
     logging.info(f"Bento created")
