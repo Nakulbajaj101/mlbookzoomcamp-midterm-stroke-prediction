@@ -1,4 +1,4 @@
-service: "service:svc"
+service: "service.py:svc"
 labels:
   owner: bentoml-stroke-risk-team
   stage: dev
