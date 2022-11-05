@@ -10,3 +10,4 @@ python:
   - scikit-learn
   - pandas
   - xgboost
+  - pydantic

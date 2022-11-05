@@ -42,12 +42,12 @@ svc = bentoml.Service(
 async def classify(raw_request):
     """Function to classify and make stroke prediction"""
 
-    app_data = pd.DataFrame(raw_request, index=[0])
+    app_data = pd.DataFrame(raw_request.dict(), index=[0])
     vector_processed = preprocessor.transform(app_data)
     vector_transformed = transformer.transform(vector_processed.to_dict(orient='records'))
 
     prediction = await runner.predict_proba.async_run(vector_transformed)
-    result = prediction[0][1]
+    result = round(prediction[0][1],3)
 
     if result > 0.7:
         return {
