@@ -17,7 +17,7 @@ sample = {
   "smoking_status": "formerly smoked"
 }
 
-class CreditRiskTestUser(HttpUser):
+class StrokePredictTestUser(HttpUser):
     """
     Usage:
         Start locust load testing client with:
