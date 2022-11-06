@@ -49,19 +49,19 @@ async def classify(raw_request):
     prediction = await runner.predict_proba.async_run(vector_transformed)
     result = round(prediction[0][1],3)
 
-    if result > 0.7:
+    if result > 0.5:
         return {
             "status": 200,
             "probability_of_stroke": result,
             "stroke_risk": "HIGH"
         }
-    elif result > 0.5:
+    elif result > 0.3:
         return {
             "status": 200,
             "probability_of_stroke": result,
             "stroke_risk": "MEDIUM"
         }
-    elif result > 0.25:
+    elif result > 0.2:
         return {
             "status": 200,
             "probability_of_stroke": result,
