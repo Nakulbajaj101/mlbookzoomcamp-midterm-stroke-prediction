@@ -10,18 +10,17 @@ MODEL_NAME = os.getenv("MODEL_NAME", "stroke_detection_model")
 SERVICE_NAME = os.getenv("SERVICE_NAME", "stroke_detection_classifier")
 class StrokeServiceData(BaseModel):
 
-    id: int
-    gender : str
-    age : float
-    hypertension: int
-    heart_disease : int
-    ever_married: str
-    work_type: str
-    residence_type: str
-    avg_glucose_level: float
-    bmi: float
-    smoking_status: str
-
+    id: int = 49833
+    gender : str = "Female"
+    age : float = 42.0
+    hypertension: int = 1
+    heart_disease : int = 1
+    ever_married: str = 0
+    work_type: str = "Urban"
+    residence_type: str = 112.98
+    avg_glucose_level: float = 37.2
+    bmi: float = 37.2
+    smoking_status: str = "formerly smoked"
 
 
 model_ref = bentoml.xgboost.get(
