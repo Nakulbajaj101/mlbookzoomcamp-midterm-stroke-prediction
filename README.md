@@ -13,3 +13,18 @@ It is believed there are early factors that could help predict stroke. Imagine c
 go to the GP, with the latest data they collect on you, as soon data is enterted in the system, they get notified on risk of suffering a stroke based on current health and lifestyle factors. By equipping clinics to utilise a ML model, can help them to prioritise health of patients that have high risk of suffering stroke, and provide an intervention.
 
 
+# Data Source 
+The dataset is available on kaggle at [Stroke Prediction Dataset](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)
+For the ease of discovery, dataset has been downloaded and made available in the repo [here](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/healthcare-dataset-stroke-data.csv)
+
+# Build With
+The section covers tools used to run the project
+1. Python for data exploration with pandas, seaborn and matplotlib
+2. Python for ML pipeline with sklearn, xgboost and bentoml
+3. Bentoml framework in python to build the deployment service
+4. Bash for orchatrating model training, building deployment and pushing to ECR on the cloud
+5. AWS Fargate for deploying the model as a service on AWS
+6. Locust for local load testing of bentoml api
+
+# Project structure
+![alt text](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/ProjectTree.png)
