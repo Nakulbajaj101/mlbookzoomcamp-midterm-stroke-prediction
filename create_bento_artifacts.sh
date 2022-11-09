@@ -6,19 +6,17 @@
 
 ####Once the profile is ready you can take the image to AWS####
 
-
-
 export MODEL_NAME="stroke_detection_model"
 export SERVICE_NAME="stroke_detection_classifier"
 
 # Running the training
 echo "Running training"
-pipenv run python training.py
+python training.py
 
 # Building the application
 
 echo "Building the bento"
-pipenv run bentoml build
+bentoml build
 
 # Containerise the application
 
@@ -26,7 +24,6 @@ echo "Containerise bento and building it"
 
 export MODEL_TAG=$(bentoml get stroke_detection_classifier:latest -o json | jq -r .version)
 cd ~/bentoml/bentos/$SERVICE_NAME/$MODEL_TAG && bentoml containerize $SERVICE_NAME:latest
-
 
 echo "Tagging the docker image"
 # Defining docker image tag and account id

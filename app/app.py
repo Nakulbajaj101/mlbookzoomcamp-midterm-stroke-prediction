@@ -28,7 +28,7 @@ bmi = st.slider("BMI of the patient", min_value=20.0, max_value=100.0)
 smoking_status = st.selectbox("What is the patient's smoking status>", ("Formerly Smoked", "Never Smoked", "Smokes", "unknown"))
 
 
-url = "http://localhost:3000" #Update the url
+url = "http://3.15.239.166:3000" #Update the url
 endpoint = f"{url}/classify"
 request = {
     "id" : id,
@@ -46,7 +46,7 @@ request = {
 
 pred_value=""
 if st.button('Predict Stroke Risk', disabled=id==0):
-    prediction = requests.post(url=url, json=request).json()
+    prediction = requests.post(url=endpoint, json=request).json()
     pred_value = st.write(f"Chance of stroke for your patient is {prediction['stroke_risk']}, and likelihood of stroke is {round(prediction['probability_of_stroke'],2)}") 
 if st.button("Clear Form", disabled=pred_value==""):
     placeholder.number_input('Enter Patient ID:', value=0)

@@ -4,6 +4,8 @@ understand the risk. They can further work with the patients to design a plan or
 
 The service will be provided as an API, and the IT teams at Health providers can use it to support web portals and forms. Where the health providers don't have IT to support them, service will be provided as a streamlit app
 
+[StreamlitApp]![alt text](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/StreamlitStrokePrediction.png)
+
 # Motivation 
 Amongst the major cardiovascular diseases, stroke is one of the most dangerous and life-threatening disease, but the life of a patient can be saved if the stroke is detected during early stage. The literature reveals that the patients always experience ministrokes which are also known as transient ischemic attacks (TIA) before experiencing the actual attack of the stroke. Most of the literature work is based on the MRI and CT scan images for classifying the cardiovascular diseases including a stroke which is an expensive approach for diagnosis of early strokes. In India where cases of strokes are rising, there is a need to explore noninvasive cheap methods for the diagnosis of early strokes. [Sroke prediction](https://www.hindawi.com/journals/bn/2022/7725597/)
 
@@ -40,9 +42,15 @@ The section covers tools used to run the project
 1. Run the following commands in order in bash from the root directory
 Note: Make sure `jq` is installed and `docker` is installed and running
 
+Activate the pipenv virtual env shell
+```bash
+pipenv shell
+```
+
+
 ```bash
 echo "Building the bento"
-pipenv run bentoml build
+bentoml build
 
 # Containerise the application
 
@@ -55,6 +63,11 @@ cd ~/bentoml/bentos/$SERVICE_NAME/$MODEL_TAG && bentoml containerize $SERVICE_NA
 # How to run the project end to end on AWS Fargate
 
 Note: Make sure `jq` is installed and `docker` is installed and running, also make sure AWS profile is configured locally which has privelages to create ECR repo and create an image
+
+Activate the pipenv virtual env shell
+```bash
+pipenv shell
+```
 
 Run the following bash script in the root directory
 ```bash
@@ -76,6 +89,14 @@ pipenv run streamlit run app.py
 
 Once the service is up navigate to `localhost:8501` in the browser, change the member id to 1 and click on "Predict Stroke Risk". The app will send the request to AWS Fargate, and a prediction will be returned
 
+![Fargate Task Creation](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/FargateTaskCreation.png)
+
+![Bento Deployed Swagger Api](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/BentoDeployedFargateSwaggerApi.png)
+
+![Api Test](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/SwaggerApiResponse.png)
+
+![Streamlit test with deployed](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/StreamlitStrokePrediction.png)
+
 # How to do load testing
 
 1. Run the bento prediction service locally from the root directory
@@ -89,6 +110,11 @@ pipenv run locust -H http://localhost:3000
 ```
 
 Navigate to `http://0.0.0.0:8089` in the browser and start the load testing
+
+![Load Testing Result](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/LocalLoadTesting.png)
+
+![Load Testing Terminal](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/LocustTerminalResults.png)
+
 
 
 # Data exploration, model selection and EDA
