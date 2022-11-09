@@ -16,9 +16,9 @@ class StrokeServiceData(BaseModel):
     hypertension: int = 1
     heart_disease : int = 1
     ever_married: str = 0
-    work_type: str = "Urban"
-    residence_type: str = 112.98
-    avg_glucose_level: float = 37.2
+    work_type: str = "Govt_job"
+    residence_type: str = "Rural"
+    avg_glucose_level: float = 112.98
     bmi: float = 37.2
     smoking_status: str = "formerly smoked"
 
