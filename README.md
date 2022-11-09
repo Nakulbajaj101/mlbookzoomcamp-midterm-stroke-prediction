@@ -4,7 +4,7 @@ understand the risk. They can further work with the patients to design a plan or
 
 The service will be provided as an API, and the IT teams at Health providers can use it to support web portals and forms. Where the health providers don't have IT to support them, service will be provided as a streamlit app
 
-[StreamlitApp]![alt text](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/StreamlitStrokePrediction.png)
+![alt text](https://github.com/Nakulbajaj101/mlbookzoomcamp-midterm-stroke-prediction/blob/main/images/StreamlitStrokePrediction.png)
 
 # Motivation 
 Amongst the major cardiovascular diseases, stroke is one of the most dangerous and life-threatening disease, but the life of a patient can be saved if the stroke is detected during early stage. The literature reveals that the patients always experience ministrokes which are also known as transient ischemic attacks (TIA) before experiencing the actual attack of the stroke. Most of the literature work is based on the MRI and CT scan images for classifying the cardiovascular diseases including a stroke which is an expensive approach for diagnosis of early strokes. In India where cases of strokes are rising, there is a need to explore noninvasive cheap methods for the diagnosis of early strokes. [Sroke prediction](https://www.hindawi.com/journals/bn/2022/7725597/)
