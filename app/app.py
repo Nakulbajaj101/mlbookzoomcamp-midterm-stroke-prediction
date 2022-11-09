@@ -28,7 +28,8 @@ bmi = st.slider("BMI of the patient", min_value=20.0, max_value=100.0)
 smoking_status = st.selectbox("What is the patient's smoking status>", ("Formerly Smoked", "Never Smoked", "Smokes", "unknown"))
 
 
-url = "http://localhost:3000/classify"
+url = "http://localhost:3000" #Update the url
+endpoint = f"{url}/classify"
 request = {
     "id" : id,
     "gender": gender,
